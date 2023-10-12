@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import { Link, useHistory } from "react-router-dom";
 import "../../styles/home.css";
+import { navigate } from "@reach/router";
 
 export const Home = () => {
 	const [name,setName] = useState("")
@@ -12,12 +13,19 @@ export const Home = () => {
 	console.log("STORE***",store)
 	useEffect(()=>{
 		if(store.token &&	store.token != "" && store.token != "undefined" && store?.token.length > 0){
-			actions.getUser()			
+			actions.getUser()
+			//navigate("/demo")			
 		}
 	},[store.token])
 	return (
 		<div className="text-center mt-5">
-			<h1>Login</h1>
+			{store.token &&	store.token != "" && store.token != "undefined" && store?.token.length > 0 ?
+			<div>
+				<p>Hello {store.user.name} !</p>
+			</div>
+			:
+			"Login"
+			}
 			<div>
 				<input
 					type="text"
