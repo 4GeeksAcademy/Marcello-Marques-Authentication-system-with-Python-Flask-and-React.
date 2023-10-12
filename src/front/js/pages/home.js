@@ -1,26 +1,69 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
+import { Link, useHistory } from "react-router-dom";
 import "../../styles/home.css";
 
 export const Home = () => {
+	const [name,setName] = useState("")
+	const [email,setEmail] = useState("")
+	const [password,setPassword] = useState("")
 	const { store, actions } = useContext(Context);
-
+	console.log("STORE***",store)
+	useEffect(()=>{
+		if(store.token &&	store.token != "" && store.token != "undefined" && store?.token.length > 0){
+			actions.getUser()			
+		}
+	},[store.token])
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
+			<h1>Login</h1>
+			<div>
+				<input
+					type="text"
+					placeholder="Name:" 
+					value={name} 
+					onChange={(e)=> setName(e.target.value)}
+				/>
+				<input
+					type="text"
+					placeholder="Email:"
+					value={email}
+					onChange={(e)=> setEmail(e.target.value)}
+				/>
+				<input
+					type="password"
+					placeholder="Password:"
+					value={password}
+					onChange={(e)=> setPassword(e.target.value)}
+				/>
+				<button
+					onClick={()=> {
+					actions.signUp(name, email, password)
+					}
+				}
+				>SignUp
+				</button>
+				{store.token &&	store.token != "" && store.token != "undefined" && store?.token.length > 0 ? 
+					<button onClick={()=> {
+						actions.logout()
+						setName("")
+						setEmail("")
+						setPassword("")
+						}
+					}
+					>Logout
+					</button>
+					:
+					<button
+						onClick={()=>{
+							actions.login(email, password)						
+
+							}}
+					>Login
+					</button>
+				}				
 			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
-				</a>
-			</p>
 		</div>
 	);
 };
