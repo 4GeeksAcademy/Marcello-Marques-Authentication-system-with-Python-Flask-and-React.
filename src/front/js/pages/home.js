@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom";
 import "../../styles/home.css";
 import { navigate } from "@reach/router";
 
+
+
 export const Home = () => {
 	const [name,setName] = useState("")
 	const [email,setEmail] = useState("")

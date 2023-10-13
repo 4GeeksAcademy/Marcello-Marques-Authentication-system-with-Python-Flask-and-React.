@@ -7,9 +7,12 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
-import NotFound from "./pages/notFound";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Login } from "./pages/login";
+import { Signup } from "./pages/signup";
+import { Privite } from "./pages/privite";
+import { NotFound } from "./pages/notFound";
 
 //create your first component
 const Layout = () => {
@@ -24,6 +27,9 @@ const Layout = () => {
             <Navbar />
             <Router>
                 <Home path="/" />
+                <Privite path="/privite" />
+                <Login path="/login" />
+                <Signup path="/signup" />
                 <Demo path="/demo" />
                 <Single path="/single/:theid" />
                 <NotFound default />
