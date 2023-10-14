@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-
+import { Router, Link } from "@reach/router";
 export const Signup = () => {
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
@@ -27,13 +27,15 @@ export const Signup = () => {
 					value={password}
 					onChange={(e)=> setPassword(e.target.value)}
 				/>
-                <button
-					onClick={()=> {
-					actions.signUp(name, email, password)
+                <Link to="/login">
+					<button
+						onClick={()=> {
+						actions.signUp(name, email, password)
+						}
 					}
-				}
-				>SignUp
-				</button>
+					>SignUp
+					</button>
+				</Link>
 		</div>
 	);
 };

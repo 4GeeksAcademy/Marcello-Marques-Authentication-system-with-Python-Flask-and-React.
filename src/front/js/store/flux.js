@@ -22,11 +22,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			updateTokenFromStorage:()=>{
+			updateStoreFromStorage:()=>{
 				const token=sessionStorage.getItem("token")
+				const user=sessionStorage.getItem("user")
+				let userObject=JSON.parse(user)
 				if(token && token != "" && token != "undefined" ){
 					console.log("UpdateTokem", typeof token)
 					setStore({token:token})
+					setStore({user:userObject})
 				}
 			},
 
@@ -69,7 +72,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}				
 			)
 				.then((resp)=>resp.json())
-				.then((data)=>setStore({user:data}))
+				.then((data)=>{
+					let sessionDataString = JSON.stringify(data)
+					sessionStorage.setItem ("user",sessionDataString)
+					setStore({user:data})
+				})
 			}
 
 		}

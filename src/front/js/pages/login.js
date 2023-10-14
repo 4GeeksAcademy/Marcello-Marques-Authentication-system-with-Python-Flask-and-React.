@@ -15,7 +15,9 @@ export const Login = () => {
 	},[store.token])
 
 	return (
+		
 		<div>
+			<p>Hello {store.user.name} !!!</p>
             <input
         type="text"
         placeholder="Email:"
