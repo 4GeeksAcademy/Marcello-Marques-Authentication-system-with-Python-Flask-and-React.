@@ -1,6 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	let backend=process.env.BACKEND_URL
-	console.log(backend,"BACKEND***")
 	return {
 		store: {
 			message: null,
@@ -27,7 +26,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const user=sessionStorage.getItem("user")
 				let userObject=JSON.parse(user)
 				if(token && token != "" && token != "undefined" ){
-					console.log("UpdateTokem", typeof token)
 					setStore({token:token})
 					setStore({user:userObject})
 				}
@@ -61,7 +59,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getUser:()=> {
 				const store = getStore();
-				console.log("StoreToken123",sessionStorage.getItem("token"))
 				fetch(backend+"api/getuser",{
 					method:'GET',
 					headers:{

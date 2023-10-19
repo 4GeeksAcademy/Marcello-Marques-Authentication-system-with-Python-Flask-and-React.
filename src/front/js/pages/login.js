@@ -14,41 +14,29 @@ export const Login = () => {
 		}
 	},[store.token])
 
-	return (
-		
-		<div>
-			<p>Hello {store.user.name} !!!</p>
+	return (		
+		<div className="text-center mt-5">
+			<h2>Enter your email and password...</h2>
             <input
-        type="text"
-        placeholder="Email:"
-        value={email}
-        onChange={(e)=> setEmail(e.target.value)}
-    />
+				type="text"
+				placeholder="Email:"
+				value={email}
+				onChange={(e)=> setEmail(e.target.value)}
+			/>
             <input
                 type="password"
                 placeholder="Password:"
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
             />
-            {store.token &&	store.token != "" && store.token != "undefined" && store?.token.length > 0 ? 
-					<button onClick={()=> {
-						actions.logout()
-						setName("")
-						setEmail("")
-						setPassword("")
-						}
-					}
-					>Logout
-					</button>
-					:
-					<button
-						onClick={()=>{
-							actions.login(email, password)						
-
-							}}
-					>Login
-					</button>
-				}			
+			<button 
+				className="btn-btn"
+				onClick={()=>{
+				actions.login(email, password)						
+				}
+			}
+				>Login
+			</button>						
 		</div>
 	);
 };

@@ -5,3 +5,31 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+.signup-button,
+.login-button {
+    background-color: #4caf50;
+    border: 2px solid black;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    border-radius: 4px;
+}
+.btn {
+    color: white;
+    margin: 4px 2px;
+    font-size: 20px;     
+}
+.btn-btn {
+    margin-left: 2px;     
+}
+.signup-button:hover {
+    background-color: #7aff05;
+}
+
+.login-button:hover {
+    background-color: #7aff05;
+}
+.smile{
+    font-size: 60px;
+}

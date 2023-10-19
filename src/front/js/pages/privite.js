@@ -10,17 +10,19 @@ export const Privite = () => {
     const { store, actions } = useContext(Context);
     
 	return (
-        <div>
-            <p>Hello {store.user.name} !!!</p>
+        <div className="text-center mt-5">
+            <h2 className="smile"> {'Hello '+store.user.name+', welc😊me !!!'}</h2>
             <Link to="/">
-            <button onClick={()=> {
-						actions.logout()
-						setName("")
-						setEmail("")
-						setPassword("")
-						}
-					}
-					>Logout
+            <button 
+                className="signup-button" 
+                onClick={()=> {
+                actions.logout()
+                setName("")
+                setEmail("")
+                setPassword("")
+                }
+            }
+            >Logout
 			</button>
             </Link>
         </div>
