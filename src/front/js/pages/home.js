@@ -20,7 +20,7 @@ export const Home = () => {
 	return (
 		<div className="text-center mt-5">
 			<div>
-			<h2>Welcome, press <strong>"signup"</strong> or <strong>"login"</strong>...</h2>
+			<h2>Welc😊me, press <strong>"signup"</strong> or <strong>"login"</strong>...</h2>
 			</div>		
 			<div>				
 				<Link to="/signup">

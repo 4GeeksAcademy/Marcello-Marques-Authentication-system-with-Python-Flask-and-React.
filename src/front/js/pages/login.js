@@ -10,7 +10,7 @@ export const Login = () => {
     useEffect(()=>{
 		if(store.token &&	store.token != "" && store.token != "undefined" && store?.token.length > 0){
 			actions.getUser()
-			navigate("/privite")			
+			navigate("/private")			
 		}
 	},[store.token])
 

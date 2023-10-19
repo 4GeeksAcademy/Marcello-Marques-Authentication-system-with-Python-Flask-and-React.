@@ -11,7 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Login } from "./pages/login";
 import { Signup } from "./pages/signup";
-import { Privite } from "./pages/privite";
+import { Private } from "./pages/private";
 import { NotFound } from "./pages/notFound";
 
 //create your first component
@@ -27,7 +27,7 @@ const Layout = () => {
             <Navbar />
             <Router>
                 <Home path="/" />
-                <Privite path="/privite" />
+                <Private path="/private" />
                 <Login path="/login" />
                 <Signup path="/signup" />
                 <Demo path="/demo" />

@@ -21,6 +21,7 @@ export const Signup = () => {
         const trimmedName = name.trim();
         const trimmedEmail = email.trim();
         const trimmedPassword = password.trim();
+        console.log(trimmedEmail, trimmedName,trimmedPassword,"TRIM***")
 
         if (trimmedName && trimmedEmail && trimmedPassword) {
             actions.signUp(trimmedName, trimmedEmail, trimmedPassword);
